@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Loader from "components/Loader/Loader";
-import { EditorList } from "pages/EditorsList/EditorsList";
+import {Loader} from "components/Loader/Loader";
+import EditorList from "pages/EditorsList/EditorsList";
 import { Form } from "react-router-dom";
 import { fetchSearchByKeyword } from "services/Api";
 

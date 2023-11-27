@@ -8,7 +8,7 @@ const Home = lazy(() => import('pages/Home/Home'));
 const MovieDetailes = lazy(() => import('pages/MovieDetails/MovieDetails'));
 const Movies = lazy(() => import('pages/Movies/Movies'));
 
-export default App = () => {
+export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout/>}>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviews } from "services/Api";
-import Loader from "components/Loader/Loader";
+import { Loader } from "components/Loader/Loader";
 import { List } from "./Reviews.styled";
 
 export const Reviews = () => {

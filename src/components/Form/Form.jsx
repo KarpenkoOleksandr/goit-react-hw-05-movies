@@ -17,7 +17,7 @@ export const Form = ({searchMovies}) => {
                 type="text"
                 name="query"
                 autoFocus
-                value={querty}
+                value={query}
                 onChange={handleInputChange} />
             <Button>Search</Button>
         </SearchForm>

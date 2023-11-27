@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import EditorList from "pages/EditorsList/EditorsList";
 import { fetchTrending } from "services/Api";
-import Loader from "components/Loader/Loader";
+import {Loader} from "components/Loader/Loader";
 
 export const Home = () => {
     const [films, setFilms] = useState([]);

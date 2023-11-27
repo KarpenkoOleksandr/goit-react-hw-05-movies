@@ -9,7 +9,7 @@ export const Layout = () => {
             <Header>
                 <nav>
                     <Link to="/" end>Home</Link>
-                    <link to="/movies">Movies</link>
+                    <Link to="/movies">Movies</Link>
                 </nav>
             </Header>
             <Suspense fallback={<Loader/>}>

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import {Loader} from "components/Loader/Loader";
+import Loader from "components/Loader/Loader";
 import EditorList from "pages/EditorsList/EditorsList";
-import { Form } from "react-router-dom";
+import Form from "components/Form/Form";
 import { fetchSearchByKeyword } from "services/Api";
 
-export const Movies = () => {
+export default function Movies () {
     const [searchFilms, setSearchFilms] = useState([]);
     const [loading, setLoading] = useState(false);
     const [noMoviesText, setNoMoviesText] = useState(false);

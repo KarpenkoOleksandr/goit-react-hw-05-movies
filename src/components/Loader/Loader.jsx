@@ -1,7 +1,7 @@
 import { Dna } from "react-loader-spinner";
 import { Container } from "./Loader.styled";
 
-export const Loader = () => {
+export default function Loader () {
     return (
         <Container>
             <Dna

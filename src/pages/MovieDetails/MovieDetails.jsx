@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Outlet, Link, useLocation } from "react-router-dom";
-import { Loader } from "components/Loader/Loader";
+import Loader from "components/Loader/Loader";
 import { fetchMovieDetails } from "services/Api";
 import { Container, List, ListInfo, LinkInfo, Button } from "./MovieDetails.styled";
 

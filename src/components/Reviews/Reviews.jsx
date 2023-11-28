@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviews } from "services/Api";
-import { Loader } from "components/Loader/Loader";
+import Loader from "components/Loader/Loader";
 import { List } from "./Reviews.styled";
 
-export const Reviews = () => {
+export default function Reviews() {
     const { movieId } = useParams();
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false);

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import EditorList from "pages/EditorsList/EditorsList";
 import { fetchTrending } from "services/Api";
-import {Loader} from "components/Loader/Loader";
+import Loader from "components/Loader/Loader";
 
-export const Home = () => {
+export default function Home () {
     const [films, setFilms] = useState([]);
     const [loading, setLoading] = useState(false);
 

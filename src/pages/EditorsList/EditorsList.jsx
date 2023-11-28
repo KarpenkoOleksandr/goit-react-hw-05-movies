@@ -7,7 +7,7 @@ export default function EditorList ({ films }) {
     return (
         <List>
             {films.map(film => (
-                <Item eky={film.id}>
+                <Item key={film.id}>
                     <MovieLink to={`/movies/${film.id}`} state={{ from: location }}>
                         {film.title}
                     </MovieLink>

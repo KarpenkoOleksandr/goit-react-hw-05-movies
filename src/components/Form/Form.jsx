@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { SearchForm, Input, Button } from ".Form.styled";
+import { SearchForm, Input, Button } from "./Form.styled";
 
-export const Form = ({searchMovies}) => {
+export  default function Form ({searchMovies}) {
     const [query, setQuery] = useState('');
     const handleInputChange = evt => {
         setQuery(evt.target.value);

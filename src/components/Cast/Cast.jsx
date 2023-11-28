@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchActors } from "services/Api";
-import { Loader } from "components/Loader/Loader";
+import Loader from "components/Loader/Loader";
 import { List, Text } from "./Cast.styled";
 
-export const Cast = () => {
+export default function Cast () {
     const { movieId } = useParams();
     const [actors, setActors] = useState([]);
     const [loading, setLoadig] = useState(false);

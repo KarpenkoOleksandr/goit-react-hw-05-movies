@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams, Outlet, Link, useLocation } from "react-router-dom";
 import Loader from "components/Loader/Loader";
 import { fetchMovieDetails } from "services/Api";
@@ -8,7 +8,8 @@ export default function MovieDetails() {
     const { movieId } = useParams();
     const [movieInfo, setMovieInfo] = useState(null);
     const [loading, setLoading] = useState(false);
-    const location = useLocation();
+  const location = useLocation();
+  const backLink = useRef(location.state?.from ?? '/');
 
     useEffect(() => {
      const fetchMovieDetailsFilms = async () => {
@@ -43,7 +44,7 @@ export default function MovieDetails() {
     
     return (
     <>
-      <Link to={location.state?.from ?? '/'}>
+      <Link to={backLink.current}>
         <Button type="button">Go back</Button>
       </Link>
       {loading && <Loader />}

@@ -9,21 +9,20 @@ export default function Movies () {
     const [loading, setLoading] = useState(false);
     const [noMoviesText, setNoMoviesText] = useState(false);
 
-    const searchMovies = queryMovie => {
-        setLoading(true);
-
-      fetchSearchByKeyword(queryMovie)
-        .then(searchResults => {
-          setSearchFilms(searchResults);
-            setNoMoviesText(searchResults.length === 0);
-        })
-        .catch(error => {
-          console.log(error);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
+  
+  const searchMovies = async queryMovie => {
+    setLoading(true);
+      try {
+        const resp = await fetchSearchByKeyword(queryMovie);
+                setSearchFilms(resp);
+        setNoMoviesText(resp.length === 0);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    
+  };
     return (
         <main>
             <Form searchMovies={searchMovies} />

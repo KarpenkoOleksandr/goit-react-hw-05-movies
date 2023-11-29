@@ -8,20 +8,18 @@ export default function Reviews() {
     const { movieId } = useParams();
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false);
-    useEffect(() => {
-    const fetchReviewsFilms = () => {
+  useEffect(() => {
+    const fetchReviewsFilms = async () => {
       setLoading(true);
 
-      fetchReviews(movieId)
-        .then(reviews => {
-          setReviews(reviews);
-        })
-        .catch(error => {
-          console.log(error);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+      try {
+        const resp = await fetchReviews(movieId);
+        setReviews(resp);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchReviewsFilms();

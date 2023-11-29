@@ -7,13 +7,19 @@ import { List, Text } from "./Cast.styled";
 export default function Cast () {
     const { movieId } = useParams();
     const [actors, setActors] = useState([]);
-    const [loading, setLoadig] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        const onActorsOfMovie = () => {
-            setLoadig(true);
-
-            fetchActors(movieId).then(actors => { setActors(actors); }).catch(error => { console.log(error); }).finally(() => { setLoadig(false); });
+     useEffect(() => {
+      const onActorsOfMovie = async () => {
+       setLoading(true);
+        try {
+        const resp = await fetchActors(movieId);
+        setActors(resp);   
+        } catch (error) {
+        console.log(error);
+        } finally {
+        setLoading(false);
+        }
         };
         onActorsOfMovie();
     }, [movieId]);

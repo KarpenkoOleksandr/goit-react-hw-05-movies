@@ -8,19 +8,17 @@ export default function Home () {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-    const fetchTrendingFilms = () => {
+    const fetchTrendingFilms = async () => {
       setLoading(true);
-
-      fetchTrending()
-        .then(trendingFilms => {
-          setFilms(trendingFilms);
-        })
-        .catch(error => {
-          console.log(error);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+      try {
+        const resp = await fetchTrending();
+        setFilms(resp);
+  
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchTrendingFilms();       

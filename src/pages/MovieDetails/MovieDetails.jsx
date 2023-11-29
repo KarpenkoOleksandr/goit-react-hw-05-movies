@@ -11,21 +11,19 @@ export default function MovieDetails() {
     const location = useLocation();
 
     useEffect(() => {
-     const fetchMovieDetailsFilms = () => {
-      setLoading(true);
+     const fetchMovieDetailsFilms = async () => {
+       setLoading(true);
 
-      fetchMovieDetails(movieId)
-        .then(detailMovie => {
-          setMovieInfo(detailMovie);
-        })
-        .catch(error => {
-          console.log(error);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    };
-
+       try {
+         const resp = await fetchMovieDetails(movieId);
+         setMovieInfo(resp);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+     };
+      
     fetchMovieDetailsFilms();
     }, [movieId]);
 
